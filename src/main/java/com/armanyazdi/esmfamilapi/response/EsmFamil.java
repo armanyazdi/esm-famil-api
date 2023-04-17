@@ -1,6 +1,6 @@
 package com.armanyazdi.esmfamilapi.response;
 
-public class Response {
+public class EsmFamil {
     private final char letter;
     private final String name;
     private final String family;
@@ -14,8 +14,7 @@ public class Response {
     private final String car;
     private final String object;
 
-
-    public Response(char letter, String name, String family, String food, String fruit, String color, String city, String country, String animal, String flower, String car, String object) {
+    public EsmFamil(char letter, String name, String family, String food, String fruit, String color, String city, String country, String animal, String flower, String car, String object) {
         this.letter = letter;
         this.name = Name.firstName(letter);
         this.family = Name.lastName(letter);
