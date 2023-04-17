@@ -16,8 +16,8 @@ public class EsmFamil {
 
     public EsmFamil(char letter, String name, String family, String food, String fruit, String color, String city, String country, String animal, String flower, String car, String object) {
         this.letter = letter;
-        this.name = Name.firstName(letter);
-        this.family = Name.lastName(letter);
+        this.name = NameGenerator.firstName(letter);
+        this.family = NameGenerator.lastName(letter);
         this.food = RandomSelector.select(letter, "foods.txt");
         this.fruit = RandomSelector.select(letter, "fruits.txt");
         this.color = RandomSelector.select(letter, "colors.txt");
