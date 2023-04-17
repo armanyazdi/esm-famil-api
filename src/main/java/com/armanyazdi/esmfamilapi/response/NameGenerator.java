@@ -19,7 +19,6 @@ public class NameGenerator {
     }
 
     public static String lastName(char letter) {
-        // Farsi Prefixes and Suffixes
         String[] somePrefixes = new String[]{
                 "میر",
                 "آقا",
