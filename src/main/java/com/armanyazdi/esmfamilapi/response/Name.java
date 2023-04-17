@@ -12,7 +12,7 @@ public class Name {
         DataReader.read(new String[]{"males.txt", "females.txt"}[(byte) (Math.round(Math.random()))], firstNamesFarsi);
         String firstName = firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
 
-        while (!firstName.startsWith(String.valueOf(letter)))
+        while (firstName.charAt(0) != letter)
             firstName = firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
 
         return firstName;
@@ -121,7 +121,7 @@ public class Name {
         else
             lastName += moreSuffixes[(byte) (Math.random() * moreSuffixes.length)];
 
-        while (!lastName.startsWith(String.valueOf(letter)))
+        while (lastName.charAt(0) != letter)
             lastName = lastName(letter);
 
         return lastName;
