@@ -1,13 +1,15 @@
 # API اسم فامیل
 
-## شیوه ی فراخوانی
+ساخته شده با جاوا اسپرینگ بوت.
+
+## شیوه فراخوانی
+
+**GET:**
 
 ```
-GET:
-    http://localhost:8080/esmfamil?letter=CHAR
+http://localhost:8080/esmfamil?letter=CHAR
 ```
 
-#### پارامتر های وروردی
 
 - letter: حرف انتخاب شده
 
