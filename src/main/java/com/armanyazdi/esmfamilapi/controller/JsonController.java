@@ -1,6 +1,6 @@
 package com.armanyazdi.esmfamilapi.controller;
 
-import com.armanyazdi.esmfamilapi.response.Response;
+import com.armanyazdi.esmfamilapi.response.EsmFamil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JsonController {
     @GetMapping("/esmfamil")
-    public Response json(@RequestParam char letter,
+    public EsmFamil json(@RequestParam char letter,
                          @RequestParam(required = false) String name,
                          @RequestParam(required = false) String family,
                          @RequestParam(required = false) String food,
@@ -20,7 +20,7 @@ public class JsonController {
                          @RequestParam(required = false) String flower,
                          @RequestParam(required = false) String car,
                          @RequestParam(required = false) String object) {
-        return new Response(
+        return new EsmFamil(
                 letter,
                 name,
                 family,
