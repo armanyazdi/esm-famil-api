@@ -1,11 +1,11 @@
 package com.armanyazdi.esmfamilapi.response;
 
 import lombok.Getter;
-import java.util.UUID;
+import org.springframework.http.HttpStatus;
 
 @Getter
 public class EsmFamil {
-    private final UUID id;
+    private final HttpStatus status;
     private final String name;
     private final String family;
     private final String food;
@@ -19,7 +19,7 @@ public class EsmFamil {
     private final String object;
 
     public EsmFamil(char letter) {
-        this.id = UUID.randomUUID();
+        this.status = HttpStatus.OK;
         this.name = NameGenerator.firstName(letter);
         this.family = NameGenerator.lastName(letter);
         this.food = RandomSelector.select(letter, "foods.txt");
