@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 public class EsmFamil {
+    private final Long id;
     private final HttpStatus status;
     private final String name;
     private final String family;
@@ -18,7 +19,8 @@ public class EsmFamil {
     private final String car;
     private final String object;
 
-    public EsmFamil(char letter) {
+    public EsmFamil(Long id, char letter) {
+        this.id = id;
         this.status = HttpStatus.OK;
         this.name = NameGenerator.firstName(letter);
         this.family = NameGenerator.lastName(letter);
