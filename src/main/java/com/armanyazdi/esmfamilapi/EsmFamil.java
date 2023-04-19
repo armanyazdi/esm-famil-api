@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 public class EsmFamil {
     private final Long id;
     private final HttpStatus status;
+    private final char letter;
     private final String name;
     private final String family;
     private final String food;
@@ -22,6 +23,7 @@ public class EsmFamil {
     public EsmFamil(Long id, HttpStatus status, char letter) {
         this.id = id;
         this.status = status;
+        this.letter = letter;
         this.name = NameGenerator.firstName(letter);
         this.family = NameGenerator.lastName(letter);
         this.food = RandomSelector.select(letter, "foods.txt");
