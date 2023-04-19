@@ -12,6 +12,7 @@
 http://localhost:8080/api/esmfamil?letter=CHAR
 ```
 
+#### Parameters:
 
 - letter: حرف الفبای انتخاب شده
 
@@ -21,6 +22,7 @@ http://localhost:8080/api/esmfamil?letter=CHAR
 {
   "id": 1,
   "status": "OK",
+  "letter": "م",
   "name": "مهرداد",
   "family": "موسوی نژاد",
   "food": "مرغ سوخاری",
