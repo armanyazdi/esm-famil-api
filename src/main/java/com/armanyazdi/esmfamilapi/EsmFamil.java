@@ -1,4 +1,4 @@
-package com.armanyazdi.esmfamilapi.response;
+package com.armanyazdi.esmfamilapi;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
@@ -19,9 +19,9 @@ public class EsmFamil {
     private final String car;
     private final String object;
 
-    public EsmFamil(Long id, char letter) {
+    public EsmFamil(Long id, HttpStatus status, char letter) {
         this.id = id;
-        this.status = HttpStatus.OK;
+        this.status = status;
         this.name = NameGenerator.firstName(letter);
         this.family = NameGenerator.lastName(letter);
         this.food = RandomSelector.select(letter, "foods.txt");
