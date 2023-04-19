@@ -1,4 +1,4 @@
-package com.armanyazdi.esmfamilapi.response;
+package com.armanyazdi.esmfamilapi;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
