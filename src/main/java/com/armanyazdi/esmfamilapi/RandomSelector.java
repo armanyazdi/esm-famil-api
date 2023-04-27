@@ -3,15 +3,29 @@ package com.armanyazdi.esmfamilapi;
 import java.util.ArrayList;
 
 public class RandomSelector {
-    public static String select(char letter, String file) {
-        final ArrayList<String> allItems = new ArrayList<>();
+    private static final ArrayList<String> allItems = new ArrayList<>();
+    private static final ArrayList<String> finalItems = new ArrayList<>();
 
-        DataReader.read(file, allItems);
-        String selectedItem = allItems.get((int) (Math.random() * allItems.size()));
+    private static void checkEntity(char letter) {
+        for (String s: allItems)
+            if (s.charAt(0) == letter)
+                finalItems.add(s);
 
-        while (selectedItem.charAt(0) != letter)
-            selectedItem = allItems.get((int) (Math.random() * allItems.size()));
+        allItems.clear();
+    }
 
-        return selectedItem;
+    public static String selectItem(char letter, String file) {
+        DataReader.readFile(file, allItems);
+        String pickedItem;
+        checkEntity(letter);
+
+        if (finalItems.size() >= 1) {
+            pickedItem = finalItems.get((int) (Math.random() * finalItems.size()));
+            finalItems.clear();
+
+            return pickedItem;
+        }
+        else
+            return null;
     }
 }
