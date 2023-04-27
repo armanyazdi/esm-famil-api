@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DataReader {
-    public static void read(String file, ArrayList<String> list) {
+    public static void readFile(String file, ArrayList<String> list) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/".concat(file)));
+            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/data/".concat(file)));
             String line;
-            while ((line = reader.readLine()) != null) list.add(line);
-            reader.close();
+            while ((line = br.readLine()) != null) list.add(line);
+            br.close();
         }
         catch (IOException e) {
             e.printStackTrace();
