@@ -3,17 +3,17 @@ package com.armanyazdi.esmfamilapi;
 import java.util.ArrayList;
 
 public class NameGenerator {
-    private static final ArrayList<String> firstNamesFarsi = new ArrayList<>();
-    private static final ArrayList<String> lastNamesFarsi = new ArrayList<>();
+    private static final ArrayList<String> firstNames = new ArrayList<>();
+    private static final ArrayList<String> lastNames = new ArrayList<>();
     private static final ArrayList<String> illegalNames = new ArrayList<>();
     private static final ArrayList<String> arabicNames = new ArrayList<>();
 
     public static String firstName(char letter) {
-        DataReader.read(new String[]{"males.txt", "females.txt"}[(byte) (Math.round(Math.random()))], firstNamesFarsi);
-        String firstName = firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
+        DataReader.readFile(new String[]{"males.txt", "females.txt"}[(byte) (Math.round(Math.random()))], firstNames);
+        String firstName = firstNames.get((int) (Math.random() * firstNames.size()));
 
         while (firstName.charAt(0) != letter)
-            firstName = firstNamesFarsi.get((int) (Math.random() * firstNamesFarsi.size()));
+            firstName = firstNames.get((int) (Math.random() * firstNames.size()));
 
         return firstName;
     }
@@ -82,13 +82,13 @@ public class NameGenerator {
                 " زارع", "ی",
         };
 
-        DataReader.read("males.txt", lastNamesFarsi);
-        for (byte i = 0; i < 26; i++) arabicNames.add(lastNamesFarsi.get(i));
-        for (byte i = 26; i < 51; i++) illegalNames.add(lastNamesFarsi.get(i));
-        String lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
+        DataReader.readFile("males.txt", lastNames);
+        for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
+        for (byte i = 26; i < 51; i++) illegalNames.add(lastNames.get(i));
+        String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         while (illegalNames.contains(lastName))
-            lastName = lastNamesFarsi.get((int) (Math.random() * lastNamesFarsi.size()));
+            lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری") || lastName.equals("مجتبی"))
             lastName = lastName.replace("ی", "وی");
