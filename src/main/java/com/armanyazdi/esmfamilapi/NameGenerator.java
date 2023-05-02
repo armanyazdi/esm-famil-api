@@ -5,15 +5,16 @@ import java.util.ArrayList;
 public class NameGenerator {
     private static final ArrayList<String> firstNames = new ArrayList<>();
     private static final ArrayList<String> lastNames = new ArrayList<>();
-    private static final ArrayList<String> illegalNames = new ArrayList<>();
     private static final ArrayList<String> arabicNames = new ArrayList<>();
 
     public static String firstName(char letter) {
-        DataReader.readFile(new String[]{"males.txt", "females.txt"}[(byte) (Math.round(Math.random()))], firstNames);
+        DataReader.readFile("names.txt", firstNames);
         String firstName = firstNames.get((int) (Math.random() * firstNames.size()));
 
         while (firstName.charAt(0) != letter)
             firstName = firstNames.get((int) (Math.random() * firstNames.size()));
+
+        firstNames.clear();
 
         return firstName;
     }
@@ -35,6 +36,8 @@ public class NameGenerator {
                 "حاج ",
                 "حاجی ",
                 "صوفی ",
+                "افضل ",
+                "فاضل ",
                 "شیخ ",
                 "میرزا ",
                 "استاد ",
@@ -82,13 +85,9 @@ public class NameGenerator {
                 " زارع", "ی",
         };
 
-        DataReader.readFile("males.txt", lastNames);
+        DataReader.readFile("lastnames.txt", lastNames);
         for (byte i = 0; i < 26; i++) arabicNames.add(lastNames.get(i));
-        for (byte i = 26; i < 51; i++) illegalNames.add(lastNames.get(i));
         String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
-
-        while (illegalNames.contains(lastName))
-            lastName = lastNames.get((int) (Math.random() * lastNames.size()));
 
         if (lastName.equals("مرتضی") || lastName.equals("مصطفی") || lastName.equals("موسی") || lastName.equals("کسری") || lastName.equals("مجتبی"))
             lastName = lastName.replace("ی", "وی");
@@ -122,6 +121,8 @@ public class NameGenerator {
 
         while (lastName.charAt(0) != letter)
             lastName = lastName(letter);
+
+        lastNames.clear();
 
         return lastName;
     }
